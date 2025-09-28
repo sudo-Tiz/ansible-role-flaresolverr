@@ -1,5 +1,5 @@
 [Unit]
-Description=Overseerr ({{ flaresolverr_identifier }})
+Description=FlareSolverr ({{ flaresolverr_identifier }})
 {% for service in flaresolverr_systemd_required_services_list %}
 Requires={{ service }}
 After={{ service }}
@@ -20,13 +20,13 @@ ExecStartPre={{ devture_systemd_docker_base_host_command_docker }} create \
 			--log-driver=none \
 			--user={{ flaresolverr_uid }}:{{ flaresolverr_gid }} \
 			--cap-drop=ALL \
-			--read-only \
 			--network={{ flaresolverr_container_network }} \
 			{% if flaresolverr_container_http_bind_port %}
 			-p {{ flaresolverr_container_http_bind_port }}:{{ flaresolverr_container_http_port }} \
 			{% endif %}
 			--env-file={{ flaresolverr_base_path }}/env \
 			--label-file={{ flaresolverr_base_path }}/labels \
+			--tmpfs=/tmp:rw,noexec,nosuid,size=100m \
 			{% for volume in flaresolverr_container_additional_volumes %}
 			--mount type={{ volume.type | default('bind' if '/' in volume.src else 'volume') }},src={{ volume.src }},dst={{ volume.dst }}{{ (',' + volume.options) if volume.options | default('') else '' }} \
 			{% endfor %}
