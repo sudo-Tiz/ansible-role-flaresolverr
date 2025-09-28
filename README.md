@@ -1,6 +1,6 @@
-# Jellyseerr Ansible role
+# Flaresolverr Ansible role
 
-This is an [Ansible](https://www.ansible.com/) role which installs [Jellyseerr](https://jellyseerr.dev/) to run as a [Docker](https://www.docker.com/) container wrapped in a systemd service.
+This is an [Ansible](https://www.ansible.com/) role which installs [Flaresolverr](https://flaresolverr.dev/) to run as a [Docker](https://www.docker.com/) container wrapped in a systemd service.
 
 This role *implicitly* depends on:
 
@@ -13,7 +13,7 @@ For an Ansible playbook which integrates this role and makes it easier to use, s
 
 # Limitations
 
-This role configures Jellyseerr with security in mind by doing the following:
+This role configures Flaresolverr with security in mind by doing the following:
 
 1. Running the container as a non-root user
 2. Making the filesystem read-only

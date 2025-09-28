@@ -1,25 +1,25 @@
 ---
 
-- name: Install Jellyseerr
+- name: Install Flaresolverr
   tags:
     - setup-all
-    - setup-jellyseerr
+    - setup-flaresolverr
     - install-all
-    - install-jellyseerr
+    - install-flaresolverr
   block:
-    - name: Run Jellyseerr validation tasks
-      when: jellyseerr_enabled | bool
+    - name: Run Flaresolverr validation tasks
+      when: flaresolverr_enabled | bool
       ansible.builtin.include_tasks: "{{ role_path }}/tasks/validate_config.yml"
 
-    - name: Run Jellyseerr installation tasks
-      when: jellyseerr_enabled | bool
+    - name: Run Flaresolverr installation tasks
+      when: flaresolverr_enabled | bool
       ansible.builtin.include_tasks: "{{ role_path }}/tasks/install.yml"
 
-- name: Uninstall Jellyseerr
+- name: Uninstall Flaresolverr
   tags:
     - setup-all
-    - setup-jellyseerr
+    - setup-flaresolverr
   block:
-    - name: Run Jellyseerr uninstallation tasks
-      when: not jellyseerr_enabled | bool
+    - name: Run Flaresolverr uninstallation tasks
+      when: not flaresolverr_enabled | bool
       ansible.builtin.include_tasks: "{{ role_path }}/tasks/uninstall.yml"
