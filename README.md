@@ -11,10 +11,15 @@ Check [defaults/main.yml](defaults/main.yml) for the full list of supported opti
 
 For an Ansible playbook which integrates this role and makes it easier to use, see the [mash-playbook](https://github.com/mother-of-all-self-hosting/mash-playbook).
 
-# Security
+## Limitations
 
-This role configures Flaresolverr with security in mind by doing the following:
+This role configures **Flaresolverr** securely by:
 
-1. Running the container as a non-root user
-2. Making the filesystem read-only
-3. Dropping all capabilities
+1. Running the container as a non-root user.
+2. Making the filesystem read-only.
+3. Dropping all capabilities.
+
+Due to Dockerfile limitations, the container must run as the **flaresolverr** user (`uid:1000`, `gid:1000`). You can change these values with:
+
+- `flaresolverr_docker_uid`
+- `flaresolverr_docker_gid`
