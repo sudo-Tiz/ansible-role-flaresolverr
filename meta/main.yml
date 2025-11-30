@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Sudo-Tiz
+  author: sudo-tiz
   role_name: flaresolverr
   description: An Ansible role for installing Flaresolverr, a proxy server to bypass Cloudflare protection
   platforms:
